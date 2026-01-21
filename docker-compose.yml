@@ -1,0 +1,23 @@
+version: '3.8'
+
+services:
+  ollama-quiz:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - OLLAMA_HOST=http://127.0.0.1:11434
+      - OLLAMA_MODEL=tinyllama
+    volumes:
+      # Persist Ollama models between restarts
+      - ollama-data:/root/.ollama
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+volumes:
+  ollama-data:
