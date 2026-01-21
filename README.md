@@ -116,6 +116,98 @@ curl -X POST http://localhost:3000/generate-quiz \
   }'
 ```
 
+## Example: High-Performing Teams Quiz
+
+### Request
+```bash
+curl -X POST http://localhost:3000/generate-quiz \
+  -H "Content-Type: application/json" \
+  -d '{
+    "url": "https://pragmaticthinking.com/blog/everything-you-need-to-know-about-high-performing-teams/",
+    "numberOfQuestions": 5
+  }'
+```
+
+### Response
+```json
+{
+  "success": true,
+  "blogTitle": "Everything You Need to Know About High-Performing Teams",
+  "quiz": [
+    {
+      "question": "What is the primary characteristic that distinguishes high-performing teams from regular teams?",
+      "options": [
+        "They have the most talented individuals",
+        "They have complementary skills and personalities driven by shared values",
+        "They work longer hours than other teams",
+        "They have access to better resources"
+      ],
+      "correctAnswer": 1,
+      "explanation": "High-performing teams are composed of individuals with complementary skills and personalities who are driven by shared values and a clear purpose, not just individual talent."
+    },
+    {
+      "question": "Which approach is recommended for creating team identity?",
+      "options": [
+        "Focus solely on current performance metrics",
+        "Assign roles based on hierarchy",
+        "Reflect on the team's past, present, and future vision",
+        "Copy successful teams from other organizations"
+      ],
+      "correctAnswer": 2,
+      "explanation": "The article emphasizes reflecting on the team's past, present, and future vision while discussing collective beliefs and aspirations to create a motivating shared narrative."
+    },
+    {
+      "question": "What should teams do beyond their routine work to achieve high performance?",
+      "options": [
+        "Establish team goals and set collaborative milestones",
+        "Increase individual productivity targets",
+        "Eliminate all meetings to save time",
+        "Focus only on immediate deadlines"
+      ],
+      "correctAnswer": 0,
+      "explanation": "High-performing teams establish team goals beyond routine work, set milestones collaboratively, and assign team members to track progress."
+    },
+    {
+      "question": "How should teams approach performance analysis?",
+      "options": [
+        "Only focus on failures and mistakes",
+        "Ignore past performance and focus on the future",
+        "Identify behaviors during peak performance moments and replicate successful dynamics",
+        "Rely solely on individual performance reviews"
+      ],
+      "correctAnswer": 2,
+      "explanation": "Teams should identify behaviors during peak performance moments, recognize and replicate successful team dynamics, and understand what causes unproductive behaviors."
+    },
+    {
+      "question": "What is emphasized as more important than just outcomes in high-performing teams?",
+      "options": [
+        "Individual achievement and recognition",
+        "Working in isolation to maximize efficiency",
+        "Strict adherence to original plans",
+        "Purpose-driven approach and interpersonal connectivity"
+      ],
+      "correctAnswer": 3,
+      "explanation": "The article emphasizes that interpersonal connectivity and a purpose-driven approach matter more than just outcomes, focusing on creating a cohesive and motivated environment."
+    }
+  ],
+  "metadata": {
+    "url": "https://pragmaticthinking.com/blog/everything-you-need-to-know-about-high-performing-teams/",
+    "numberOfQuestions": 5,
+    "generatedAt": "2026-01-21T14:30:00.000Z"
+  }
+}
+```
+
+### Answer Verification
+
+All answers have been verified against the source article:
+
+1. **Question 1 (Answer: B)** ✓ Correct - The article explicitly states teams are "composed of individuals with complementary skills and personalities"
+2. **Question 2 (Answer: C)** ✓ Correct - The article recommends "Reflect on team's past, present, and future vision"
+3. **Question 3 (Answer: A)** ✓ Correct - The article states "Establish team goals beyond routine work" and "Set milestones collaboratively"
+4. **Question 4 (Answer: C)** ✓ Correct - The article mentions "Identify behaviors during peak performance moments" and "replicate successful team dynamics"
+5. **Question 5 (Answer: D)** ✓ Correct - The article emphasizes "Interpersonal connectivity is crucial" and "Purpose-driven approach matters more than just outcomes"
+
 ## Configuration
 
 - **Port**: Set the `PORT` environment variable (default: 3000)
